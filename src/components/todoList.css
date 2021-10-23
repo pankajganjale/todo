@@ -1,0 +1,41 @@
+.mainTask {
+    border: 1px solid black;
+    margin: 50px;
+    border-radius: 10px;
+    background-color: #616161;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.mainTask div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 25px;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #757575;
+    color: white;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.mainTask > div:nth-child(1) {
+    font-weight: 500;
+}
+
+.mainTask div button {
+    height: 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+}
+
+.mainTask > div > button:nth-child(4) {
+    background-color: #448aff;
+}
+
+.mainTask > div > button:nth-child(5) {
+    background-color: red;
+}

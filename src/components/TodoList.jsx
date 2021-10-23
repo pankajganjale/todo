@@ -1,9 +1,11 @@
-function TodoList({list, markDone, deleteTask}) {
+import "./todoList.css";
 
-    return <div>
+function TodoList({list, markDone, deleteTask}) {
+    return <div className="mainTask">
+        <div><p>TASK</p><p>DEADLINE</p><p>STATUS</p><p>MARK</p><p>DELETE</p></div>
         {list.map((e) => <div key={e.id}><p>{e.title}</p><p>{e.date}</p><p>{e.status ? "Completed" : "Not Completed"}</p><button onClick={() => {
             markDone(e.id);
-        }} >Mark Completed</button><button onClick={() => {
+        }} >Done</button><button onClick={() => {
             deleteTask(e.id);
         }}>Delete</button></div>)}
     </div>

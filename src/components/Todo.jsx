@@ -4,14 +4,17 @@ import { TodoList } from "./TodoList";
 
 function Todo() {
     const [todoList, setTodoList] = useState([]);
+    const [count, setCount] = useState(0);
 
     const handleTodo = (todo) => {
         setTodoList([...todoList, todo]);
+        setCount(count + 1);
     }
 
     const completed = (id) => {
         const updatedList = todoList.map((e) => {
             if (e.id === id) {
+                if (e.status === false) setCount(count - 1);
                 e.status = true;
             }
             return e;
@@ -36,7 +39,12 @@ function Todo() {
         setTodoList(toggledData);
     }
 
+    const styles = {
+        color: "white"
+    }
+
     return <div>
+        <h1 style={styles}>To Do App | Total Tasks = {count}</h1>
         <TodoInput addTodo={handleTodo} handleToggle={toggle}></TodoInput>
         <TodoList list={todoList} markDone={completed} deleteTask={deleted}></TodoList>
     </div>
