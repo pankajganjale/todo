@@ -24,8 +24,20 @@ function Todo() {
         setTodoList(listAfterDelete);
     }
 
+    const toggle = () => {
+        const toggledData = todoList.map((e) => {
+            if (e.status === true) {
+                e.status = false;
+            } else {
+                e.status = true;
+            }
+            return e;
+        })
+        setTodoList(toggledData);
+    }
+
     return <div>
-        <TodoInput addTodo={handleTodo}></TodoInput>
+        <TodoInput addTodo={handleTodo} handleToggle={toggle}></TodoInput>
         <TodoList list={todoList} markDone={completed} deleteTask={deleted}></TodoList>
     </div>
 }

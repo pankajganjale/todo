@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { nanoid } from 'nanoid';
 
-function TodoInput({addTodo}) {
+function TodoInput({addTodo, handleToggle}) {
     const [text, setText] = useState({
         task: "",
         date: "",
@@ -30,6 +30,7 @@ function TodoInput({addTodo}) {
         <input name="task" type="text" placeholder="Enter Task.." onChange={newTask} />
         <input name="date" type="date" onChange={newTask} />
         <button onClick={handleChange}>ADD TASK</button>
+        <button onClick={handleToggle}>TOGGLE</button>
     </div>
 }
 
