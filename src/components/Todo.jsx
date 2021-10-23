@@ -19,10 +19,14 @@ function Todo() {
         setTodoList(updatedList);
     }
 
+    const deleted = (id) => {
+        const listAfterDelete = todoList.filter((e) => e.id !== id);
+        setTodoList(listAfterDelete);
+    }
 
     return <div>
         <TodoInput addTodo={handleTodo}></TodoInput>
-        <TodoList list={todoList} markDone={completed}></TodoList>
+        <TodoList list={todoList} markDone={completed} deleteTask={deleted}></TodoList>
     </div>
 }
 
