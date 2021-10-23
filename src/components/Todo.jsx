@@ -9,9 +9,20 @@ function Todo() {
         setTodoList([...todoList, todo]);
     }
 
+    const completed = (id) => {
+        const updatedList = todoList.map((e) => {
+            if (e.id === id) {
+                e.status = true;
+            }
+            return e;
+        } );
+        setTodoList(updatedList);
+    }
+
+
     return <div>
         <TodoInput addTodo={handleTodo}></TodoInput>
-        <TodoList list={todoList}></TodoList>
+        <TodoList list={todoList} markDone={completed}></TodoList>
     </div>
 }
 
