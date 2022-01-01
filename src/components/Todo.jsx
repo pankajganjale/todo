@@ -5,6 +5,7 @@ import { TodoList } from "./TodoList";
 function Todo() {
     const [todoList, setTodoList] = useState([]);
     const [count, setCount] = useState(0);
+    const [color, setColor] = useState("#448aff");
 
     const handleTodo = (todo) => {
         setTodoList([...todoList, todo]);
@@ -14,8 +15,14 @@ function Todo() {
     const completed = (id) => {
         const updatedList = todoList.map((e) => {
             if (e.id === id) {
-                if (e.status === false) setCount(count - 1);
-                e.status = true;
+                if (e.status === false) {
+                    setCount(count - 1);
+                    e.status = true;
+                } else {
+                    setCount(count + 1);
+                    e.status = false;
+                }
+                e.status ? setColor("green") : setColor("#448aff")
             }
             return e;
         } );
@@ -46,8 +53,8 @@ function Todo() {
     return <div>
         <h1 style={styles}>To Do App | Total Tasks = {count}</h1>
         <TodoInput addTodo={handleTodo} handleToggle={toggle}></TodoInput>
-        <TodoList list={todoList} markDone={completed} deleteTask={deleted}></TodoList>
+        <TodoList changeColor={color} list={todoList} markDone={completed} deleteTask={deleted}></TodoList>
     </div>
 }
-
+    
 export { Todo };
